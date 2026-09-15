@@ -54,43 +54,23 @@ The project was completed to demonstrate the ability to:
 
 # 🏪 The Kasi-Mart Data Model
 
-The project uses three related tables.
+The project uses three related tables: `CUSTOMERS`, `ORDERS`, and `PRODUCTS`.
 
-```text
-                 ┌──────────────────────┐
-                 │      CUSTOMERS       │
-                 ├──────────────────────┤
-                 │ PK customer_id       │
-                 │ customer_name        │
-                 │ email                │
-                 │ province             │
-                 │ signup_date          │
-                 └──────────┬───────────┘
-                            │
-                            │ 1 : Many
-                            ▼
-                 ┌──────────────────────┐
-                 │        ORDERS        │
-                 ├──────────────────────┤
-                 │ PK order_id          │
-                 │ FK customer_id       │
-                 │ FK product_id        │
-                 │ order_date           │
-                 │ quantity             │
-                 └──────────┬───────────┘
-                            ▲
-                            │ Many : 1
-                            │
-                 ┌──────────┴───────────┐
-                 │       PRODUCTS       │
-                 ├──────────────────────┤
-                 │ PK product_id        │
-                 │ product_name         │
-                 │ category             │
-                 │ unit_price           │
-                 └──────────────────────┘
-```
+The data model was generated directly from the Snowflake schema using DBeaver. It shows the tables, their columns, primary and foreign keys, and the relationships between the tables.
 
+<div align="center">
+
+<img src="documentation/data_model.png" alt="Kasi-Mart Data Model" width="850"/>
+
+</div>
+
+### 🔗 Relationship Design
+
+- **CUSTOMERS → ORDERS:** One customer can place many orders.
+- **PRODUCTS → ORDERS:** One product can appear in many orders.
+- `ORDERS.customer_id` connects to `CUSTOMERS.customer_id`.
+- `ORDERS.product_id` connects to `PRODUCTS.product_id`.
+- `ORDERS` acts as the transaction table connecting customer and product information.
 ### Relationship design
 
 - One customer can place many orders.
@@ -663,45 +643,21 @@ The project starts with three CSV datasets and builds them into a structured rel
 
 The final queries demonstrate how the same underlying data can answer different business questions, from understanding individual orders to identifying customers and product categories that contribute to revenue.
 
-```text
-                RAW CSV DATA
-                     │
-                     ▼
-             ┌───────────────┐
-             │   SNOWFLAKE   │
-             │  DE_PROJECT1  │
-             │   KASI_MART   │
-             └───────┬───────┘
-                     │
-          ┌──────────┼──────────┐
-          ▼          ▼          ▼
-      CUSTOMERS   PRODUCTS    ORDERS
-          │          │          │
-          └──────────┼──────────┘
-                     ▼
-              RELATIONAL MODEL
-                     │
-                     ▼
-                SQL ANALYSIS
-                     │
-          ┌──────────┼──────────┐
-          ▼          ▼          ▼
-      CUSTOMER    CATEGORY    TOP 5
-       REVENUE     REVENUE    CUSTOMERS
-          │          │          │
-          └──────────┼──────────┘
-                     ▼
-              BUSINESS INSIGHTS
-```
+### 🔄 End-to-End Data Engineering Workflow
 
----
+The workflow below summarises the process followed throughout the project, from the original CSV source files through Snowflake, data modelling and SQL analysis to the final business insights.
 
 <div align="center">
 
-### 🛒 Kasi-Mart Data Engineering Project
+<img src="documentation/kasi_mart_data_engineering_workflow.png" alt="Kasi-Mart Data Engineering Workflow" width="100%"/>
+
+</div>
+
+### 📌 Project Outcome
+
+The project demonstrates how raw retail data can be structured, connected, validated and analysed using modern data engineering tools. The final output is a set of SQL analyses that transform transactional data into information that can support customer, product and revenue-related business decisions.
 
 **Snowflake • SQL • Data Modelling • Data Analysis • GitHub**
 
 *From data to stronger decisions.*
-
 </div>
