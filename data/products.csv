@@ -1,0 +1,21 @@
+product_id,product_name,category,unit_price
+P001,Bluetooth Speaker,Electronics,1087.57
+P002,Wireless Earbuds,Electronics,585.66
+P003,Power Bank,Electronics,357.65
+P004,USB-C Cable,Electronics,151.71
+P005,Smart Watch,Electronics,103.56
+P006,Coffee Mug,Home,700.39
+P007,Throw Blanket,Home,739.05
+P008,Desk Lamp,Home,88.05
+P009,Storage Box,Home,872.78
+P010,Kitchen Scale,Home,145.94
+P011,Sneakers,Fashion,155.49
+P012,Denim Jacket,Fashion,115.18
+P013,Backpack,Fashion,450.08
+P014,Sunglasses,Fashion,655.85
+P015,Cap,Fashion,391.89
+P016,Shampoo,Beauty,623.66
+P017,Moisturizer,Beauty,683.94
+P018,Perfume,Beauty,890.15
+P019,Lip Balm,Beauty,1068.27
+P020,Face Mask,Beauty,725.36
